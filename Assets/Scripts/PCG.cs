@@ -8,12 +8,15 @@ public class PCG : MonoBehaviour
     public GameObject[] prefabs;
     private float delay;
     [SerializeField]
-    private float delayReset;
-    
+    public static float delayReset;
+    public Vector3 spawnPos;
+    [SerializeField]
+    private float radius;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        delayReset = 2f;
     }
 
     // Update is called once per frame
@@ -30,13 +33,12 @@ public class PCG : MonoBehaviour
                 GameObject prefabToUse = prefabs[0];
                 if (moreCoins < 6)
                 {
-                    foreach(GameObject p in prefabs)
+                    foreach (GameObject p in prefabs)
                     {
                         if (p.name == "Coins")
                         {
                             prefabToUse = p;
                         }
-
                     }
                 }
                 else
@@ -50,8 +52,21 @@ public class PCG : MonoBehaviour
 
                     }
                 }
-                Instantiate(prefabToUse, new Vector3(transform.position.x + Random.Range(-6.5f, 6.5f), transform.position.y, transform.position.z), Quaternion.identity);
-                random--;
+                
+                spawnPos = new Vector3(transform.position.x + Random.Range(-6.5f, 6.5f), transform.position.y, transform.position.z);
+                float radius = 0.5f;
+
+                if (Physics.CheckSphere(spawnPos, radius))
+                {
+                    //Debug.Log("Found Something");
+                }
+                else
+                {
+                    Instantiate(prefabToUse, spawnPos, Quaternion.identity);
+                    random--;
+                }
+                
+
             }
             delay = delayReset;
         }

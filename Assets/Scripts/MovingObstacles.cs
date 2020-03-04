@@ -5,13 +5,14 @@ using UnityEngine;
 public class MovingObstacles : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    public static int speed { get; set; }
     private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speed = 950;
     }
 
     // Update is called once per frame

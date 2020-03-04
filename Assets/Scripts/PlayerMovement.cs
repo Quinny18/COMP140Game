@@ -14,6 +14,29 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Movement.x = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            if(MovingObstacles.speed <= 3000)
+            {
+                MovingObstacles.speed += 100;
+                Debug.Log(MovingObstacles.speed);
+                PCG.delayReset = 0.75f;
+
+            }
+            
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if(MovingObstacles.speed > 1000)
+            {
+                MovingObstacles.speed -= 10;
+                Debug.Log(MovingObstacles.speed);
+            }
+            
+            
+        }
     }
 
     void FixedUpdate()
