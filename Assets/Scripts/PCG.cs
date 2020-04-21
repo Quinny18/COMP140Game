@@ -25,7 +25,7 @@ public class PCG : MonoBehaviour
         //Spawning in the prefabs
         if (delay <= 0)
         {
-            
+
             int random = Random.Range(1, 5);
             while (random > 0)
             {
@@ -52,7 +52,7 @@ public class PCG : MonoBehaviour
 
                     }
                 }
-                
+
                 spawnPos = new Vector3(transform.position.x + Random.Range(-6.5f, 6.5f), transform.position.y, transform.position.z);
                 float radius = 0.5f;
 
@@ -65,7 +65,7 @@ public class PCG : MonoBehaviour
                     Instantiate(prefabToUse, spawnPos, Quaternion.identity);
                     random--;
                 }
-                
+
 
             }
             delay = delayReset;

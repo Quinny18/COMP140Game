@@ -9,13 +9,11 @@ public class CameraController : MonoBehaviour
     public int zOffset = -20;
     public int yOffset = 12;
     public GameObject player;
-    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
         smoothSpeed = 2f;
-        cam = GetComponent<Camera>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

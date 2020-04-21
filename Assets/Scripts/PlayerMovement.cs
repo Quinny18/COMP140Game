@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
-
+    public float speedInput;
     public Rigidbody rb;
 
     Vector3 Movement;
@@ -13,34 +13,47 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         Movement.x = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKey(KeyCode.W))
+        if (speedInput < 50f)
         {
-            if(MovingObstacles.speed <= 3000)
-            {
-                MovingObstacles.speed += 100;
-                Debug.Log(MovingObstacles.speed);
-                PCG.delayReset = 0.75f;
+            MovingObstacles.speed = 900f;
 
-            }
-            
         }
-
-        else if (Input.GetKey(KeyCode.S))
+        else if (speedInput > 50f && speedInput < 350f)
         {
-            if(MovingObstacles.speed > 1000)
-            {
-                MovingObstacles.speed -= 10;
-                Debug.Log(MovingObstacles.speed);
-            }
-            
-            
+            MovingObstacles.speed = 1850f;
+        }
+        else if (speedInput >= 350f)
+        {
+            MovingObstacles.speed = 2550f;
         }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + Movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void Gear1()
+    {
+        
+    }
+
+    void Gear2()
+    {
+        
+    }
+    void Gear3()
+    {
+        
+    }
+    void Gear4()
+    {
+        
+    }
+    void Gear5()
+    {
+        
     }
 }
