@@ -5,6 +5,7 @@ using System.IO.Ports;
 
 public class ArduinoInputs : MonoBehaviour
 {
+    //Setting the serial port that the arduino will communicate through
     SerialPort sp = new SerialPort("COM3", 9600);
     public float speed;
 
@@ -15,7 +16,7 @@ public class ArduinoInputs : MonoBehaviour
         sp.ReadTimeout = 1;
     }
 
-    // Update is called once per frame
+    // Reading in teh information from the Arduino
     void Update()
     {
         speed = float.Parse(sp.ReadLine());
