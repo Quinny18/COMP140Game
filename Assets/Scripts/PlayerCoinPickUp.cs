@@ -11,13 +11,13 @@ public class PlayerCoinPickUp : MonoBehaviour
         {
             //Adds one to score and destroys the coin you collided with
             ScoreCounter.scoreValue += 1;
-            Destroy(collider.gameObject);
+            collider.gameObject.SetActive(false);
 
         }
         else if (collider.gameObject.CompareTag("Obstacles"))
         {
             //Destroys the player is you collide with a wall
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingObstacles : MonoBehaviour
+public class Cube : MonoBehaviour, IPooledObject
 {
-    [SerializeField]
-    //Affects the speed that the obstacles move toward the player
-    public static float speed = 100f;
-    private Rigidbody rb;
+    public static float speed = 500f;
+    public Rigidbody rb;
+    public GameObject objectPooler;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //Sets the obstacles rigidbody to rb
-        rb = GetComponent<Rigidbody>();
+    public void OnObjectSpawn (){
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
         //Prints out the obstacles current speed
@@ -29,6 +27,5 @@ public class MovingObstacles : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 }
