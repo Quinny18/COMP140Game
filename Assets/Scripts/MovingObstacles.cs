@@ -19,7 +19,7 @@ public class MovingObstacles : MonoBehaviour
     void Update()
     {
         //Prints out the obstacles current speed
-        Debug.Log("Obstacle Speed: " + speed);
+        //Debug.Log("Obstacle Speed: " + speed);
 
         //Moves rigidbody progressively negative on the z axis
         rb.velocity = new Vector3(0, 0, -speed * Time.deltaTime);
